@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bridge Builder 3D</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8C%89%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <canvas id="scene"></canvas>
+
+    <header class="topbar panel">
+      <div class="brand">Bridge Builder <span>3D</span></div>
+      <select id="levelSelect" aria-label="Level"></select>
+      <div class="budget">
+        <div class="budget-label"><span id="costText">€0</span> / <span id="budgetText">€0</span></div>
+        <div class="budget-bar"><div id="budgetFill"></div></div>
+      </div>
+    </header>
+
+    <aside class="toolbar panel" id="toolbar">
+      <div class="section-title">Materiaal</div>
+      <div id="materialButtons"></div>
+      <button class="tool" data-tool="delete" id="deleteTool">
+        <span class="swatch del">✕</span><span class="tool-name">Verwijderen</span><kbd>X</kbd>
+      </button>
+      <div class="row">
+        <button id="undoBtn" title="Ongedaan maken (Ctrl+Z)">↶</button>
+        <button id="redoBtn" title="Opnieuw (Ctrl+Y)">↷</button>
+        <button id="clearBtn" title="Alles wissen">Wissen</button>
+      </div>
+    </aside>
+
+    <div class="actions panel">
+      <button id="testBtn" class="primary">▶ Testen</button>
+      <button id="slowBtn" class="toggle" title="Slow motion (S)">🐢 Slow-mo</button>
+      <button id="stressBtn" class="toggle on" title="Belasting tonen (B)">Belasting</button>
+      <button id="followBtn" class="toggle on" title="Camera volgt voertuig (F)">Volg</button>
+      <button id="viewBtn" title="Vooraanzicht (V)">⟲ Zicht</button>
+    </div>
+
+    <div class="hint panel" id="hint"></div>
+    <div class="toast" id="toast"></div>
+
+    <div class="legend panel" id="legend">
+      <span>Belasting</span>
+      <div class="legend-bar"></div>
+      <span>0%</span><span>100%</span>
+    </div>
+
+    <div class="help panel" id="help">
+      <b>Bouwen:</b> klik op een ankerpunt (geel) of knooppunt en klik waar de balk moet eindigen.
+      <b>Esc</b>/rechtsklik stopt. <b>Shift+klik</b> verwijdert.
+      <b>Camera:</b> rechtermuis draaien, middelste muis schuiven, scroll zoomen.
+    </div>
+
+    <div class="banner hidden" id="banner">
+      <h2 id="bannerTitle"></h2>
+      <p id="bannerText"></p>
+      <div class="row">
+        <button id="bannerRetry">Terug naar bouwen</button>
+        <button id="bannerNext" class="primary">Volgend level →</button>
+      </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
